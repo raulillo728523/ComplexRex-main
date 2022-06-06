@@ -1,0 +1,49 @@
+{% extends "app/base.html"%}
+
+{% load static %}
+{% block css %}
+<link rel="stylesheet" href="{% static 'app/css/QR.css' %}">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script  type="text/javascript" src="{% static 'app/js/EQR.js' %}"language="JavaScript"  ></script>
+{% endblock %}
+
+
+
+
+{% block content %}
+<!-- <p>{{token}}</p> -->
+
+<div class="container-QR-main">
+<section class="container-QR" >
+    <div class="form-qr">
+        <h2>Elige a un usuario para visualizar su código QR</h2>
+        <select name="name" id="nameQR">
+            <option id="selecciona" value="" data-qr="x">Seleccionar</option>
+            {% for p in usuarios %}
+            <option id="{{p.id}}" data-qr="{{ p.QR }}" data-residencia="{{ p.residencia }}" value="{{ p.nombre }}" >{{ p.nombre }} </option>
+            {% endfor %}
+          </select> 
+        <button disabled onclick="generarQR()" id="btnQR" class="btnEQR">Generar código QR</button>
+    </div>
+</section>
+<section class="container-QR" >
+    
+    <img style="display:none;" src="" class="qr" id="dirQR" alt="">
+</section>
+</div>
+
+
+{% endblock %}
+
+{% block js %}
+
+<script>
+    function getUser(){
+        name = document.getElementById('nameQR').value;
+        console.log(name);
+    }
+    
+</script>
+
+{% endblock %}
+

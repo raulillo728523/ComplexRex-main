@@ -1,0 +1,8 @@
+django-admin-interface
+django-widget-tweaks
+qrcode
+django-dynamic-db-router
+djangorestframework
+opencv-python
+cryptocode
+django-cors-headers
